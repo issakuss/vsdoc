@@ -1,0 +1,13 @@
+input-files:
+- manuscript/zoteropicker.md
+- manuscript/inlini.md
+- manuscript/references.md
+
+output-file: output.docx
+
+bibliography: 
+- src/citation.bib
+
+filters:
+- src/filters/inlini.py
+- src/filters/makebib.py

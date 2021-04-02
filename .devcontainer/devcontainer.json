@@ -1,0 +1,27 @@
+{
+    "name": "issakvsdoc",
+    "service": "issakvsdoc",
+    "dockerComposeFile": "docker-compose.yml",
+    "workspaceFolder": "/mnt",
+
+    "settings": { 
+        "terminal.integrated.shell.linux": "/bin/bash",
+    },
+
+    "extensions": [
+        "vscodevim.vim",
+
+        "donjayamanne.githistory",
+        "vtrois.gitmoji-vscode",
+
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+
+        "mblode.zotero",
+        "znck.grammarly",
+        "martinchristiaan.synonymprovider",
+        "kirozen.wordcounter"
+    ],
+
+    "postCreateCommand": "/bin/bash --login",
+  }

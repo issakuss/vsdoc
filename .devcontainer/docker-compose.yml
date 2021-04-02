@@ -1,0 +1,16 @@
+version: '3'
+services:
+  issakvsdoc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: issakuss/vsdoc:latest
+    container_name: issakvsdoc
+    volumes:
+      - /home/vermeer/issakuss/:/mnt
+    stdin_open: true
+    tty: true
+    network_mode: "host"
+    user: "22398:16003"
+    entrypoint: []
+    command: "/bin/bash --login"
