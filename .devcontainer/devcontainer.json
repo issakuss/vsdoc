@@ -20,7 +20,11 @@
         "mblode.zotero",
         "znck.grammarly",
         "martinchristiaan.synonymprovider",
-        "kirozen.wordcounter"
+        "kirozen.wordcounter",
+
+        "tomoki1207.pdf",
+        "ambooth.git-rename",
+        "nemesv.copy-file-name"
     ],
 
     "postCreateCommand": "/bin/bash --login",
