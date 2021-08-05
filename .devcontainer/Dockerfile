@@ -1,4 +1,5 @@
 FROM pandoc/ubuntu:2.12
+ARG DEBIAN_FRONTEND=noninteractive
 COPY requirements.txt /tmp/requirements.txt
 ENV USER_ID=22398 \
     GROUP_ID=16003 \

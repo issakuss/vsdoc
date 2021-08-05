@@ -24,7 +24,9 @@
 
         "tomoki1207.pdf",
         "ambooth.git-rename",
-        "nemesv.copy-file-name"
+        "nemesv.copy-file-name",
+        "artdiniz.quitcontrol-vscode",
+        "mrmlnc.vscode-duplicate"
     ],
 
     "postCreateCommand": "/bin/bash --login",
