@@ -25,4 +25,6 @@ filters:
 ## Example
 @smallwoodDistinguishingHowWhy2013 says iroiro.
 Are ha koudayo [@smallwoodDistinguishingHowWhy2013; @holzelHowDoesMindfulness2011; @tangSpecialIssueMindfulness2013].
+Sounano, Majide? [SM\; @smallwoodDistinguishingHowWhy2013]
+Un, Majimaji [see @smallwoodDistinguishingHowWhy2013]
 Their paper [-@seliAttentionLapseMotorDecoupling2016] introduced arekore.
