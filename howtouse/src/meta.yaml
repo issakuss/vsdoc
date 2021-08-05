@@ -11,3 +11,7 @@ bibliography:
 filters:
 - src/filters/inlini.py
 - src/filters/makebib.py
+
+citeproc: true
+
+csl: src/apa7.csl

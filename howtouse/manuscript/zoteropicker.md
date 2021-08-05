@@ -1,10 +1,10 @@
 # How to use Citation Picker for Zotero ("mblode.zotero" and makebib)
-1. Open Zotero in remote computer, via VNC.
+## 1. Open Zotero in remote computer, via VNC.
 
-2. Press Alt + Shift + Z and call the picker.  
+## 2. Press Alt + Shift + Z and call the picker.  
 The picker will appear in VNC.
 
-3. Edit makebib.md
+## 3. Edit makebib.md
 You will find it in src/filters (you can change the directory if you want).
 Replace the LIBRARY_ID, LIBRARY_TYPE, API_KEY, COLLECTION_ID.
 You can check your LIBRARY_ID (userID) and create API_KEY here: https://www.zotero.org/settings/keys .
@@ -13,7 +13,7 @@ COLLECTION_ID can be None, but the filter will take a long time to search all of
 LIBRARY_TYPE must be 'user' or 'group'.
 SAVE_PATH is relative path from working directory (Makefile's directory) to save .bib file.
 
-4. Use makebib.py as filter
+## 4. Use makebib.py as filter
 I recommend you use .yaml file as below:
 
 ```
@@ -22,9 +22,17 @@ filters:
 - src/filters/makebib.py
 ```
 
+## 5. Other filter
+apa_and.lua is a filter to change "&" to "and" only in non-parenthetical citation.
+Note that --lua-filter can't be in YAML default file.
+
 ## Example
 @smallwoodDistinguishingHowWhy2013 says iroiro.
 Are ha koudayo [@smallwoodDistinguishingHowWhy2013; @holzelHowDoesMindfulness2011; @tangSpecialIssueMindfulness2013].
 Sounano, Majide? [SM\; @smallwoodDistinguishingHowWhy2013]
 Un, Majimaji [see @smallwoodDistinguishingHowWhy2013]
 Their paper [-@seliAttentionLapseMotorDecoupling2016] introduced arekore.
+
+apa_and.lua changes "&" to "and".
+@tangSpecialIssueMindfulness2013 is non-parenthetical citation.
+The parenthetical citation is [@tangSpecialIssueMindfulness2013]
