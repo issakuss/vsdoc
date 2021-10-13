@@ -1,7 +1,7 @@
 {
     "name": "issakvsdoc",
     "service": "issakvsdoc",
-    "dockerComposeFile": "docker-compose.yml",
+    "dockerComposeFile": "docker-compose-remote.yml",
     "workspaceFolder": "/mnt",
 
     "settings": { 
