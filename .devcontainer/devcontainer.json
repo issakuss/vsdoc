@@ -5,7 +5,16 @@
     "workspaceFolder": "/mnt",
 
     "settings": { 
-        "terminal.integrated.defaultProfile.linux#": "/bin/bash",
+        "highlight.decorations": { "rangeBehavior": 3 },
+        "highlight.regexFlags": "gi",
+        "highlight.maxMatches": 250,
+        "highlight.regexes": {
+            "(@)([-_.!~*\\'()a-zA-Z0-9;\/?:\\@&=+\\$,%#]+)":{
+              "filterFileRegex": ".*\\.md",
+              "decorations": [
+                {"color": "#646464"},
+                {"color": "#646464"}
+              ]}}
     },
 
     "extensions": [
@@ -21,6 +30,7 @@
         "znck.grammarly",
         "martinchristiaan.synonymprovider",
         "kirozen.wordcounter",
+        "fabiospampinato.vscode-highlight",
 
         "tomoki1207.pdf",
         "ambooth.git-rename",
