@@ -7,7 +7,7 @@ ENV USER_ID=22398 \
     GROUP_NAME=abi
 
 RUN apt update \
-&&  apt install -y curl make tree neovim \
+&&  apt install -y curl make tree vim \
 #
 # User / Group ID
 &&  useradd -s /bin/bash -m ${USER_NAME} \
