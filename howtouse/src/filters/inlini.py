@@ -2,6 +2,7 @@ import re
 from configparser import ConfigParser
 from pathlib import Path
 
+import pandas as pd
 from pandocfilters import toJSONFilter, Str
 
 
@@ -13,9 +14,12 @@ parser_posit.read(dire / 'iniposit.ini')
 posits = dict(parser_posit.items('posit'))
 parsers = dict()
 for key, posit in posits.items():
-    parser = ConfigParser()
-    parser.read(posit)
-    parsers[key] = parser
+    if posit.endswith('.ini'):
+        parser = ConfigParser()
+        parser.read(posit)
+        parsers[key] = parser
+    if posit.endswith('.csv'):
+        parsers[key] = pd.read_csv(posit, header=None)
 
 
 def pval(var, mini=-float('inf')):
@@ -46,7 +50,11 @@ def inline(key, value, *_):
     if len(field) != 3:
         return
 
-    var = dict(parsers[field[0]].items(field[1]))[field[2]]
+    loaded = parsers[field[0]]
+    if isinstance(loaded, pd.DataFrame):
+        var = loaded.iloc[int(field[1]), int(field[2])]
+    else:
+        var = dict(loaded.items(field[1]))[field[2]]
     if code:
         var = eval(code)
 
@@ -56,4 +64,4 @@ def inline(key, value, *_):
 if __name__ == '__main__':
     toJSONFilter(inline)
     if False: # Test code
-        replaced = inline('Str', '%{method:stats.test!!pval(var)}', None, None)
+        replaced = inline('Str', '%{table:2.2!!pval(var)}', None, None)
