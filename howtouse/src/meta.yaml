@@ -10,6 +10,7 @@ bibliography:
 
 filters:
 - src/filters/inlini.py
+- src/filters/apa_and.lua
 - src/filters/makebib.py
 
 citeproc: true
