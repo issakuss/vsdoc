@@ -22,11 +22,19 @@ for key, posit in posits.items():
         parsers[key] = pd.read_csv(posit, header=None)
 
 
+def _alpha2num(alpha):
+    num=0
+    for index, item in enumerate(list(alpha)):
+        num += pow(26,len(alpha)-index-1)*(ord(item)-ord('A')+1)
+    return num
+
+
 def pval(var, mini=-float('inf')):
     if float(var) < mini:
         return '< .001'
     else:
         return '= ' + var[1:]
+
 
 def dround(var, d):
     return str(round(float(var), 2))
@@ -52,7 +60,7 @@ def inline(key, value, *_):
 
     loaded = parsers[field[0]]
     if isinstance(loaded, pd.DataFrame):
-        var = loaded.iloc[int(field[1]), int(field[2])]
+        var = loaded.iloc[int(field[2]) - 1, _alpha2num(field[1]) - 1]
     else:
         var = dict(loaded.items(field[1]))[field[2]]
     if code:
@@ -63,5 +71,3 @@ def inline(key, value, *_):
 
 if __name__ == '__main__':
     toJSONFilter(inline)
-    if False: # Test code
-        replaced = inline('Str', '%{table:2.2!!pval(var)}', None, None)

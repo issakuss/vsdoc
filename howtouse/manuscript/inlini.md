@@ -15,4 +15,7 @@ The correlation in condition A was siginificant (p %{result:pearson.p1!!pval(var
 The correlation in condition B was siginificant (p %{result:pearson.p2!!dround(var,2)})
 The correlation in condition B was siginificant (p %{result:pearson.p2!!pval(dround(var,2),0.001)})
 
-t = %{table:1.1} (p %{table:1.2!!pval(var,0.001)})
+Var B was not significant(t = %{table:C.2} (p %{table:C.3!!pval(var,0.001)}))
+The row number starts with 1.
+The column code starts with A.
+Type as you see in Excel.
