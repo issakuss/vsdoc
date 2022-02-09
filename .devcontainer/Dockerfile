@@ -1,4 +1,4 @@
-FROM pandoc/ubuntu:2.16.2
+FROM issakuss/pandoc:2.17.1.1
 ARG DEBIAN_FRONTEND=noninteractive
 COPY requirements.txt /tmp/requirements.txt
 ENV USER_ID=22398 \
