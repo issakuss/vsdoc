@@ -7,7 +7,7 @@ from pandocfilters import toJSONFilter, Str
 
 
 dire = Path(__file__).resolve().parent
-pattern = re.compile('%\{(.*)\}')
+pattern = re.compile('%\{(.*?)\}')
 parser_posit = ConfigParser()
 parser_posit.read(dire / 'iniposit.ini')
 
@@ -41,33 +41,41 @@ def dround(var, d):
 
 
 def inline(key, value, *_):
+    def split_args(match):
+        splited = match.split('!!')
+        if len(splited) > 1:
+            match, code = splited
+        else:
+            code = None
+        return re.split('[:.]', match) + [code]
+
+    def extract_from_file(posit, field, key, code):
+        loaded = parsers[posit]
+        if isinstance(loaded, pd.DataFrame):
+            var = loaded.iloc[int(key) - 1, _alpha2num(field) - 1]
+        else:
+            var = dict(loaded.items(field))[key]
+        return eval(code) if code else var
+
     if key != 'Str':
         return
-    m = pattern.match(value)
-    if m is None:
+    matches = re.findall(pattern, value)
+    if len(matches) == 0:
         return
+    frame = re.sub(pattern, '{}', value)
 
-    field = re.split('!!', m.group(1))
-    if len(field) == 2:
-        field, code = field
-    else:
-        field = field[0]
-        code = None
-    field = re.split('[:.]', field)
-
-    if len(field) != 3:
-        return
-
-    loaded = parsers[field[0]]
-    if isinstance(loaded, pd.DataFrame):
-        var = loaded.iloc[int(field[2]) - 1, _alpha2num(field[1]) - 1]
-    else:
-        var = dict(loaded.items(field[1]))[field[2]]
-    if code:
-        var = eval(code)
-
-    return Str(value[:m.span()[0]] + var + value[m.span()[1]:]) 
+    argset = [split_args(match) for match in matches]
+    embeds = [extract_from_file(*args) for args in argset]
+    return Str(frame.format(*embeds))
 
 
 if __name__ == '__main__':
+    if False: # Test code
+        values = [
+            '%{result:pearson.p1!!pval(var,0.001)})',
+            '%{result:pearson.p2!!dround(var,2)})',
+            '(%{result:mean.ci_low}--%{result:mean.ci_high}).',
+            '%{table:C.3!!pval(var,0.001)}))']
+        for value in values:
+            inline('Str', value)
     toJSONFilter(inline)
