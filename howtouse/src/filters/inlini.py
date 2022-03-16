@@ -40,6 +40,12 @@ def dround(var, d):
     return str(round(float(var), 2))
 
 
+def int2spell(var):
+    spells = ('one', 'two', 'three', 'four', 'five',
+              'six', 'seven', 'eight', 'nine', 'ten')
+    return spells[int(var) - 1]
+
+
 def inline(key, value, *_):
     def split_args(match):
         splited = match.split('!!')

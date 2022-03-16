@@ -1,7 +1,7 @@
 # How to use inlini
 The inline allows you embed variables in your manuscript.
 You can convert value ("var") with python code written after "!!".
-Though you can't include "{" and "}", you can use some functions pval() and dround().
+Though you can't include "{" and "}", you can use some functions int2spell(), pval() and dround().
 Don't use space also.
 
 Now we can use csv instead of ini.
@@ -9,6 +9,7 @@ Now we can use csv instead of ini.
 ## Example
 We used the %{method:stats.test}.
 %{result:subject.n} participated the experiment.
+Among them, %{result:subject.n_rm!!int2spell(var)} subjects were rejected.
 The significant result was found (t = %{result:ttest.t}; p = %{result:ttest.p}).
 The mean was %{result:mean.v} (%{result:mean.ci_low}--%{result:mean.ci_high}).
 
