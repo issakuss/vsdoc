@@ -1,4 +1,4 @@
-FROM issakuss/pandoc:2.17.1.1
+FROM issakuss/pandoc:2.18
 ARG DEBIAN_FRONTEND=noninteractive
 COPY requirements.txt /tmp/requirements.txt
 ENV USER_ID=22398 \
@@ -24,7 +24,7 @@ RUN apt update \
 &&  git lfs install \ 
 #
 # Python
-&&  apt install -y python3=3.8.2-0ubuntu2 python3-pip \
+&&  apt install -y python3 python3-pip \
 &&  pip3 install -U pip \
 &&  pip install -r /tmp/requirements.txt \
 &&  ln -s /usr/bin/python3 /usr/bin/python \

@@ -21,10 +21,10 @@
         "vscodevim.vim",
 
         "donjayamanne.githistory",
-        "vtrois.gitmoji-vscode",
+        "eamodio.gitlensa",
+        "seatonjiang.gitmoji-vscode",
 
         "ms-python.python",
-        "ms-python.vscode-pylance",
 
         "mblode.zotero",
         "znck.grammarly",
@@ -39,5 +39,5 @@
         "mrmlnc.vscode-duplicate"
     ],
 
-    "postCreateCommand": "/bin/bash --login",
+    "postCreateCommand": "/bin/bash --login"
   }
