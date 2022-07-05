@@ -35,6 +35,13 @@ RUN apt update \
 &&  bash dotfiles/setup.sh || true \
 &&  chown -R ${USER_ID}:${GROUP_ID} /home/${USER_NAME}/dotfiles \
 #
+# Other
+&&  mkdir -p /home/issakuss/.local/share/pandoc \
+&&  ln -s /usr/local/share/lua/5.3 /home/issakuss/.local/share/pandoc/filters \
+&&  ln -s /usr/local/share/lua/5.3 /usr/local/share/lua/5.4 \
+&&  apt install -y lua-penlight \
+&&  ln -s /usr/share/lua/5.4/pl /usr/local/share/lua/5.4/pl \
+#
 # Cleaning
 &&  apt autoremove -y \
 &&  apt clean -y \

@@ -2,6 +2,7 @@ input-files:
 - manuscript/zoteropicker.md
 - manuscript/inlini.md
 - manuscript/references.md
+- manuscript/externalfilters.md
 
 output-file: output.docx
 
@@ -12,6 +13,8 @@ filters:
 - src/filters/inlini.py
 - src/filters/apa_and.lua
 - src/filters/makebib.py
+- pandocker/docx-comment.lua
+- pandocker/docx-pagebreak-toc.lua
 
 citeproc: true
 
