@@ -38,15 +38,16 @@
 
         "mblode.zotero",
         "znck.grammarly",
+        "ICS.japanese-proofreading",
         "martinchristiaan.synonymprovider",
         "kirozen.wordcounter",
         "fabiospampinato.vscode-highlight",
+        "yzhang.markdown-all-in-one",
 
         "tomoki1207.pdf",
         "ambooth.git-rename",
         "nemesv.copy-file-name",
-        "artdiniz.quitcontrol-vscode",
-        "mrmlnc.vscode-duplicate"
+        "artdiniz.quitcontrol-vscode"
     ],
 
     "postCreateCommand": "/bin/bash --login"
