@@ -9,12 +9,31 @@
         "highlight.regexFlags": "gi",
         "highlight.maxMatches": 250,
         "highlight.regexes": {
-            "(@)([-_.!~*\\'()a-zA-Z0-9;\/?:\\@&=+\\$,%#]+)":{
+            // \newpage
+            "(.newpage)": {
               "filterFileRegex": ".*\\.md",
-              "decorations": [
-                {"color": "#646464"},
-                {"color": "#646464"}
-              ]}},
+              "decorations": [{"color": "#008000"}, {"color": "#008000"}]
+            },
+        
+            // @smallwood2000	
+            "(@)([-_.!~*\\'()a-zA-Z0-9;/?:\\@&=+\\$,%#]+)": {
+              "filterFileRegex": ".*\\.md",
+              "decorations": [{"color": "#646464"}, {"color": "#646464"}]
+            },
+        
+            // [comment]{.comment-start}comment here[]{.comment-end}
+            "(\\[.+\\]\\{\\.comment\\-start\\})|(\\[\\]\\{\\.comment-end\\})": {
+              "filterFileRegex": ".*\\.md",
+              "decorations": [{"color": "#646464"}, {"color": "#646464"}]
+            },
+        
+            // ::: {custom-style="comment"}
+            // :::
+            "(::: \\{.+\\})|(:::)":{
+              "filterFileRegex": ".*\\.md",
+              "decorations": [{"color": "#008000"}, {"color": "#008000"}]
+            }
+        },
 
         "grammarly.files.include": [
           "**/readme.md",
