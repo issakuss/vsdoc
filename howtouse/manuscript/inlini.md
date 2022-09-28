@@ -10,6 +10,7 @@ Now we can use csv instead of ini.
 We used the %{method:stats.test}.
 %{result:subject.n} participated the experiment.
 Among them, %{result:subject.n_rm!!int2spell(var)} subjects were rejected.
+%{result:subject.n_rm!!int2Spell(var)} subjects were rejected (said again).
 The significant result was found (t = %{result:ttest.t}; p = %{result:ttest.p}).
 The mean was %{result:mean.v} (%{result:mean.ci_low}--%{result:mean.ci_high}).
 

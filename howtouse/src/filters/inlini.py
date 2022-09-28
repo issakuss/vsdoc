@@ -42,8 +42,14 @@ def dround(var, d):
 
 def int2spell(var):
     spells = ('one', 'two', 'three', 'four', 'five',
-              'six', 'seven', 'eight', 'nine', 'ten')
+              'six', 'seven', 'eight', 'nine', 'ten',
+              'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
+              'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty')
     return spells[int(var) - 1]
+
+
+def int2Spell(var):
+    return int2spell(var).capitalize()
 
 
 def inline(key, value, *_):
