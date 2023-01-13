@@ -10,6 +10,7 @@ bibliography:
 - src/citation.bib
 
 filters:
+- pantable
 - src/filters/inlini.py
 - src/filters/apa_and.lua
 - src/filters/makebib.py
